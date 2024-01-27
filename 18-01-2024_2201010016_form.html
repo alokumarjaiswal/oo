@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@alokumarjaiswal</title>
+    <style>
+        #sub {
+            margin-top: 10px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: deepskyblue;
+            color: white;
+            cursor: pointer;
+            width: 100%;
+        }
+        #f {
+            width: 540px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            color: black;
+        }
+        #1 {
+            border: 10px solid black;
+            padding: 10px;
+            width: 600px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Personal Details</h1>
+
+<div id="1">
+    <form id="f" action="/submit" method="post">
+        <label>Name</label>
+    
+        <br>
+    
+        <label for="firstname"></label><input type="text" id="firstname" name="name" placeholder="First Name">
+        <label for="middlename"></label><input type="text" id="middlename" name="name" placeholder="Middle Name">
+        <label for="lastname"></label><input type="text" id="lastname" name="name" placeholder="Last Name">
+    
+        <br>
+        <br>
+    
+        <label>Gender</label>
+    
+        <br>
+    
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+        <input type="radio" id="others" name="gender" value="others">
+        <label for="others">Others</label>
+    
+        <br>
+        <br>
+    
+        <label>Date of Birth</label>
+    
+        <br>
+    
+        <label for="dob"></label> <input id="dob" name="dob" type="date">
+    
+        <br>
+        <br>
+    
+        <label>Email</label>
+    
+        <br>
+    
+        <label for="email"></label><input type="email" id="email" name="email" placeholder="someone@example.com">
+    
+        <br>
+        <br>
+    
+        <label>Country</label>
+    
+        <br>
+    
+        <label for="country"></label><select id="country" name="country">
+            <option value="choose">Select</option>
+            <option value="afghanistan">Afghanistan</option>
+            <option value="australia">Australia</option>
+            <option value="bangladesh">Bangladesh</option>
+            <option value="china">China</option>
+            <option value="india">India</option>
+            <option value="japan">Japan</option>
+            <option value="pakistan">Pakistan</option>
+            <option value="russia">Russia</option>
+        </select>
+    
+        <br>
+        <br>
+    
+        <label>Submit ID Proof in PDF or Image form(<11 MB)</label>
+    
+        <br>
+    
+        <input type="file" id="file" name="file" accept="application/pdf, image/png, image/jpag">
+    
+        <br>
+        <br>
+    
+        <label for="message"></label><input type="text" id="message" name="message" placeholder="About" style="height: 100px; width: 500px">
+    
+        <br>
+        <br>
+    
+        <input type="checkbox" id="accept" name="accept" value="accept">
+        <label for="accept">I have read the terms and conditions.</label>
+    
+        <br><br>
+    
+        <input id="sub" type="submit" value="Submit">
+    
+    </form>
+</div>
+
+</body>
+</html>
+
+
+<!-- Alok Kumar Jaiswal
+2201010016
+B.Tech. CSE -->

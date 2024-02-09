@@ -5,11 +5,11 @@ public class InsertionSort {
         for (int i = 1; i < array.length; i++) {
             temp = array[i];
             j = i - 1;
-            while (j >= 0 && array[j] > temp) {
+            while (j > -1 && array[j] > temp) {
                 array[j + 1] = array[j--];
             }
             array[j + 1] = temp;
         }
-        System.out.print
+        System.out.println(array[0] + " " + array[1] + " " + array[2] + " " + array[3] + " " + array[4] + " " + array[5]);
     }
 }

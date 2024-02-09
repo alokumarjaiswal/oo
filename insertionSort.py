@@ -1,4 +1,4 @@
-def insertionsort(array):
+def insertionSort(array):
     for i in range(1, len(array)):
         key = array[i]  # key is the element to be inserted
         j = i - 1  # j is the index of the element before the key
@@ -9,5 +9,5 @@ def insertionsort(array):
     return array
 
 
-array = [5, 1, 2, 7, 3, 9, 4, 6, 8]
-print(insertionsort(array))
+array = [5, 1, 2, 7, 10, 3, 9, 4, 6, 8]
+print(insertionSort(array))

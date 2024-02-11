@@ -10,6 +10,8 @@ public class InsertionSort {
             }
             array[j + 1] = temp;
         }
-        System.out.println(array[0] + " " + array[1] + " " + array[2] + " " + array[3] + " " + array[4] + " " + array[5]);
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
     }
 }

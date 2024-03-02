@@ -9,5 +9,6 @@ def insertionSort(array):
     return array
 
 
-array = [5, 1, 2, 7, 10, 3, 9, 4, 6, 8]
+array = [5, 1, 2, 7, 
+10, 3, 9, 4, 6, 8]
 print(insertionSort(array))

@@ -1,0 +1,137 @@
+body {
+  font-family: "Malgun Gothic", ui-rounded;
+  background: darkred;
+  color: palegoldenrod;
+}
+
+h1 {
+  text-align: center;
+  font-family: "Cedarville Cursive", ui-rounded;
+}
+
+#p1 {
+  text-align: center;
+  font-size: x-large;
+}
+
+#p2 {
+  font-size: 21px;
+}
+
+h2 {
+  font-family: "Kristen ITC", ui-rounded;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  font-family: "Malgun Gothic", ui-rounded;
+  padding: 16px;
+  text-align: center;
+}
+
+th {
+  font-family: "Kristen ITC", ui-rounded;
+  font-size: 18px;
+}
+
+tr {
+  border-bottom: 1px solid #F4FFFE;
+}
+
+tr:hover {
+  background-color: indianred;
+}
+
+ul {
+  font-size: 21px;
+}
+
+audio {
+  filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%);
+  margin: 0 auto;
+  display: block;
+}
+
+video {
+  margin: 0 auto;
+  display: block;
+}
+
+.social {
+  padding: 15px;
+  margin: 5px;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.social a {
+  font-size: 30px;
+  color: #F4FFFE;
+  padding: 10px;
+  margin: 10px;
+  display: inline-block;
+}
+
+.social a:hover {
+  background-color: darkred;
+  color: white;
+  -webkit-transition: background-color 0.6s ease-out, color 0.6s ease-out;
+  -moz-transition: background-color 0.6s ease-out, color 0.6s ease-out;
+  -o-transition: background-color 0.6s ease-out, color 0.6s ease-out;
+  transition: background-color 0.6s ease-out, color 0.6s ease-out;
+}
+
+.animate__animated.animate__headShake {
+  --animate-duration: 7s;
+  -moz-animation-delay: 2s;
+}
+
+.animate__animated.animate__fadeIn {
+  animation-delay: 1s;
+}
+
+audio {
+  width: 100%;
+}
+
+video {
+  width: auto;
+  height: auto;
+}
+
+#a1 {
+  color: gold;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 30px;
+  }
+  #p1 {
+    font-size: 18px;
+  }
+  #p2 {
+    font-size: 16px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  table {
+    font-size: 14px;
+  }
+  ul {
+    font-size: 16px;
+  }
+  .social a {
+    font-size: 20px;
+    padding: 5px;
+    margin: 5px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

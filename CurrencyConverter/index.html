@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency Converter - Live Exchange Rates</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body class="p-3 mb-2 bg-black">
+<div class="container, user-select-none">
+
+
+    <h1 id="heart" align="center" class="animate__animated animate__pulse animate__infinite">&#10084;&#65039;</h1>
+
+    <div id="conversionTextFrom" class="text-center"></div>
+    <div id="conversionTextTo" class="text-center"></div>
+    <div id="lastUpdated" class="text-center"></div>
+
+
+    <div class="converter" align="center">
+        <label for="amountFrom"></label><input id="amountFrom" class="input" oninput="convert('from')">
+        <label for="fromCurrency"></label><select id="fromCurrency" class="input"></select>
+    </div>
+
+
+    <div align="center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="" fill="red" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5"/>
+        </svg>
+    </div>
+
+
+    <div class="converter" align="center">
+        <label for="amountTo"></label><input id="amountTo" class="input" oninput="convert('to')">
+        <label for="toCurrency"></label><select id="toCurrency" class="input"></select>
+    </div>
+
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+</div>
+
+<footer class="footer">
+    <div align="center">
+        <a href="https://www.exchangerate-api.com/terms" class="link-danger link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover">Terms & Conditions of Use</a>
+    </div>
+</footer>
+</body>
+</html>

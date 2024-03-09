@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color List</title>
+</head>
+<body>
+
+  <h2>Color List</h2>
+
+  <ul id="colorList">
+    <!-- Dynamic list items will be added here -->
+  </ul>
+
+  <script>
+    // Array of color names
+    var colors = ['red', 'green', 'blue', 'yellow', 'orange'];
+
+    // Get the ul element
+    var ul = document.getElementById('colorList');
+
+    // Loop through the colors array to create and append li elements
+    colors.forEach(function(color) {
+      // Create li element
+      var li = document.createElement('li');
+      // Set the text content of the li element to the color name
+      li.textContent = color;
+      // Append the li element to the ul element
+      ul.appendChild(li);
+    });
+  </script>
+
+</body>
+</html>

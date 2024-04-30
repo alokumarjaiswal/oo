@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="weather-container">
+    <img src="" id="weather-icon" alt="Weather Icon">
+    <h1 id="temperature"></h1>
+    <p>Precipitation: <span id="precipitation"></span></p>
+    <p>Humidity: <span id="humidity"></span></p>
+    <p>Wind: <span id="wind"></span></p>
+    <div class="location-container">
+        <button id="locate">Use Precise Location</button>
+        <label for="location"></label><input type="text" id="location">
+        <div id="suggestions" class="suggestions"></div>
+    </div>
+    <div class='toggle-container'>
+        <button id="celsius" class="toggle">C</button>
+        <button id="fahrenheit" class="toggle">F</button>
+    </div>
+
+    <p>Weather</p>
+    <p id="refresh-time"></p>
+    <p id="weather-description"></p>
+    <p id="sunrise"></p>
+    <p id="sunset"></p>
+    <p id="visibility"></p>
+    <p id="pressure"></p>
+    <p id="min-temp"></p>
+    <p id="max-temp"></p>
+    <p id="feels-like"></p>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

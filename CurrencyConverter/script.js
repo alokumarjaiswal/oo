@@ -19,6 +19,8 @@ window.onload = function() {
     // Set selected currencies in dropdowns
     document.getElementById('fromCurrency').value = fromCurrency;
     document.getElementById('toCurrency').value = toCurrency;
+    document.getElementById('amountFrom').addEventListener('input', validateInput);
+    document.getElementById('amountTo').addEventListener('input', validateInput);
 
     document.getElementById('amountFrom').addEventListener('input', function() {
         let input = this.value;
@@ -61,19 +63,18 @@ window.onload = function() {
         .catch(error => {
             console.error('Error:', error);
         });
+};
+
+function validateInput(event) {
+    const input = event.target.value;
+    if (!isNumber(input)) {
+        event.target.value = input.slice(0, -1);
+    }
 }
 
-
-//function validateInput(event) {
-//    const input = event.target.value;
-//    if (!isNumber(input)) {
-//        event.target.value = input.slice(0, -1);
-//    }
-//}
-
-//function isNumber(value) {
-//    return /^\d*\.?\d*$/.test(value);
-//}
+function isNumber(value) {
+    return /^\d*\.?\d*$/.test(value);
+}
 
 function populateDropdown(id, currencies, selectedCurrency) {
     let dropdown = document.getElementById(id);

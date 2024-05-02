@@ -5,6 +5,7 @@ window.onload = function() {
     let fromCurrency = localStorage.getItem('fromCurrency');
     let toCurrency = localStorage.getItem('toCurrency');
 
+    // Set input values if found in storage
     if (amountFrom) {
         document.getElementById('amountFrom').value = amountFrom;
     }
@@ -22,6 +23,7 @@ window.onload = function() {
     document.getElementById('amountFrom').addEventListener('input', validateInput);
     document.getElementById('amountTo').addEventListener('input', validateInput);
 
+    // Add event listeners to input fields and dropdowns to trigger conversion
     document.getElementById('amountFrom').addEventListener('input', function() {
         let input = this.value;
         localStorage.setItem('amountFrom', input);
@@ -46,6 +48,7 @@ window.onload = function() {
         convert('to');
     });
 
+    // Fetch currencies and populate dropdowns
     fetch('https://api.exchangerate-api.com/v4/latest/INR')
         .then(response => response.json())
         .then(data => {
@@ -65,6 +68,7 @@ window.onload = function() {
         });
 };
 
+// Function to validate input and allow only numbers
 function validateInput(event) {
     const input = event.target.value;
     if (!isNumber(input)) {
@@ -72,10 +76,12 @@ function validateInput(event) {
     }
 }
 
+// Function to check if input is a number
 function isNumber(value) {
     return /^\d*\.?\d*$/.test(value);
 }
 
+// Function to populate dropdown with currencies
 function populateDropdown(id, currencies, selectedCurrency) {
     let dropdown = document.getElementById(id);
     dropdown.innerHTML = '';
@@ -90,6 +96,7 @@ function populateDropdown(id, currencies, selectedCurrency) {
     });
 }
 
+// Function to convert currency based on direction (from or to)
 function convert(direction) {
     let amountFrom = parseFloat(document.getElementById('amountFrom').value);
     let fromCurrency = document.getElementById('fromCurrency').value;
@@ -141,6 +148,7 @@ function convert(direction) {
         });
 }
 
+// Function to fetch last update time and display it
 function fetchLastUpdateTime() {
     fetch('https://api.exchangerate-api.com/v4/latest/INR') // Assuming the same API is used for metadata
         .then(response => response.json())

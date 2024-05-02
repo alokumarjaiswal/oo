@@ -11,32 +11,36 @@ window.onload = function() {
     if (amountTo) {
         document.getElementById('amountTo').value = amountTo;
     }
-    if (fromCurrency) {
-        document.getElementById('fromCurrency').value = fromCurrency;
-    }
-    if (toCurrency) {
-        document.getElementById('toCurrency').value = toCurrency;
-    }
 
-    convert('from');
-    convert('to');
+    // Load currencies from storage or default to INR if not found
+    fromCurrency = fromCurrency || 'INR';
+    toCurrency = toCurrency || 'USD';
 
-    document.getElementById('amountFrom').addEventListener('input',validateInput, function() {
+    // Set selected currencies in dropdowns
+    document.getElementById('fromCurrency').value = fromCurrency;
+    document.getElementById('toCurrency').value = toCurrency;
+
+    document.getElementById('amountFrom').addEventListener('input', function() {
         let input = this.value;
         localStorage.setItem('amountFrom', input);
-    });
-    document.getElementById('amountTo').addEventListener('input',validateInput, function() {
-        let input = this.value;
-        localStorage.setItem('amountTo', input);
-    });
-    document.getElementById('fromCurrency').addEventListener('change', function() {
-        let input = this.value;
-        localStorage.setItem('fromCurrency', input);
         convert('from');
     });
-    document.getElementById('toCurrency').addEventListener('change', function() {
+
+    document.getElementById('amountTo').addEventListener('input', function() {
         let input = this.value;
-        localStorage.setItem('toCurrency', input);
+        localStorage.setItem('amountTo', input);
+        convert('to');
+    });
+
+    document.getElementById('fromCurrency').addEventListener('change', function() {
+        let selectedCurrency = this.value;
+        localStorage.setItem('fromCurrency', selectedCurrency);
+        convert('from');
+    });
+
+    document.getElementById('toCurrency').addEventListener('change', function() {
+        let selectedCurrency = this.value;
+        localStorage.setItem('toCurrency', selectedCurrency);
         convert('to');
     });
 
@@ -46,6 +50,11 @@ window.onload = function() {
             let currencies = Object.keys(data.rates);
             populateDropdown('fromCurrency', currencies);
             populateDropdown('toCurrency', currencies);
+
+            // Set selected currencies after options are populated
+            document.getElementById('fromCurrency').value = fromCurrency;
+            document.getElementById('toCurrency').value = toCurrency;
+
             convert('from'); // Trigger initial conversion
             fetchLastUpdateTime(); // Fetch last update time
         })
@@ -55,24 +64,27 @@ window.onload = function() {
 }
 
 
-function validateInput(event) {
-    const input = event.target.value;
-    if (!isNumber(input)) {
-        event.target.value = input.slice(0, -1);
-    }
-}
+//function validateInput(event) {
+//    const input = event.target.value;
+//    if (!isNumber(input)) {
+//        event.target.value = input.slice(0, -1);
+//    }
+//}
 
-function isNumber(value) {
-    return /^\d*\.?\d*$/.test(value);
-}
+//function isNumber(value) {
+//    return /^\d*\.?\d*$/.test(value);
+//}
 
-function populateDropdown(id, currencies) {
+function populateDropdown(id, currencies, selectedCurrency) {
     let dropdown = document.getElementById(id);
     dropdown.innerHTML = '';
     currencies.forEach(currency => {
         let option = document.createElement('option');
         option.value = currency;
         option.text = currency;
+        if (currency === selectedCurrency) {
+            option.selected = true;
+        }
         dropdown.appendChild(option);
     });
 }
@@ -94,15 +106,19 @@ function convert(direction) {
                 if (!isNaN(amountFrom)) {
                     convertedAmount = amountFrom * exchangeRate;
                     document.getElementById('amountTo').value = convertedAmount.toFixed(3);
+                    localStorage.setItem('amountTo', convertedAmount.toFixed(3)); // Store converted amount
                 } else {
                     document.getElementById('amountTo').value = '';
+                    localStorage.removeItem('amountTo'); // Clear storage if input is invalid
                 }
             } else if (direction === 'to') {
                 if (!isNaN(amountTo)) {
                     convertedAmount = amountTo / exchangeRate;
                     document.getElementById('amountFrom').value = convertedAmount.toFixed(3);
+                    localStorage.setItem('amountFrom', convertedAmount.toFixed(3)); // Store converted amount
                 } else {
                     document.getElementById('amountFrom').value = '';
+                    localStorage.removeItem('amountFrom'); // Clear storage if input is invalid
                 }
             }
 

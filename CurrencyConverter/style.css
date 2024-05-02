@@ -8,46 +8,7 @@
     color: white;
 }
 
-#amountFrom {
-    width: 25%;
-    height: 50px;
-    font-size: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-left: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background: black;
-    color: white;
-}
-
-#amountTo {
-    width: 25%;
-    height: 50px;
-    font-size: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-left: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background: black;
-    color: white;
-}
-
-#fromCurrency {
-    width: 25%;
-    height: 50px;
-    font-size: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-left: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background: black;
-    color: white;
-}
-
-#toCurrency {
+#amountFrom, #amountTo, #fromCurrency, #toCurrency {
     width: 25%;
     height: 50px;
     font-size: 20px;

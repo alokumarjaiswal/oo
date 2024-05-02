@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Currency Converter - Live Exchange Rates</title>
@@ -10,7 +10,6 @@
 <body class="p-3 mb-2 bg-black">
 <div class="container, user-select-none">
 
-
     <h1 id="heart" align="center" class="animate__animated animate__pulse animate__infinite">&#10084;&#65039;</h1>
 
     <div id="conversionTextFrom" class="text-center"></div>
@@ -19,7 +18,7 @@
 
 
     <div class="converter" align="center">
-        <label for="amountFrom"></label><input id="amountFrom" class="input" oninput="convert('from')">
+        <label for="amountFrom"></label><input id="amountFrom" class="input" oninput="">
         <label for="fromCurrency"></label><select id="fromCurrency" class="input"></select>
     </div>
 
@@ -32,7 +31,7 @@
 
 
     <div class="converter" align="center">
-        <label for="amountTo"></label><input id="amountTo" class="input" oninput="convert('to')">
+        <label for="amountTo"></label><input id="amountTo" class="input" oninput="">
         <label for="toCurrency"></label><select id="toCurrency" class="input"></select>
     </div>
 

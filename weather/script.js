@@ -87,6 +87,46 @@ document.addEventListener('DOMContentLoaded', function () {
             .catch(error => console.log('Error fetching weather data:', error));
     }
 
+    // Function to fetch weekly weather data based on location
+    function fetchWeeklyForecastByLocation(location) {
+        const unit = isCelsius ? 'metric' : 'imperial';
+        const apiUrl = `https://api.openweathermap.org/data/2.5/forecast/daily?q=${location}&units=${unit}&cnt=7&appid=${apiKey}`;
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                // Process the fetched data here
+                const weatherContainer = document.querySelector('.forecast-container');
+
+                // Clear the current weather data
+                while (weatherContainer.firstChild) {
+                    weatherContainer.removeChild(weatherContainer.firstChild);
+                }
+
+                // Process the forecast data
+                data.list.forEach((forecast) => {
+                    const date = new Date(forecast.dt * 1000);
+                    const dayElement = document.createElement('div');
+                    dayElement.classList.add('day');
+
+                    const weekday = document.createElement('p');
+                    weekday.textContent = date.toLocaleDateString('en-US', { weekday: 'short' });
+                    dayElement.appendChild(weekday);
+
+                    const iconElement = document.createElement('img');
+                    iconElement.src = `https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`;
+                    dayElement.appendChild(iconElement);
+
+                    const tempElement = document.createElement('p');
+                    tempElement.textContent = `${forecast.main.temp_max.toFixed(2)}°, ${forecast.main.temp_min.toFixed(2)}°`;
+                    dayElement.appendChild(tempElement);
+
+                    weatherContainer.appendChild(dayElement);
+                });
+            })
+            .catch(error => console.log('Error fetching weather data:', error));
+    }
+
+
     // Function to fetch weekly weather data based on latitude and longitude
     function fetchWeeklyForecastByCoordinates(latitude, longitude) {
         const unit = isCelsius ? 'metric' : 'imperial';
@@ -179,6 +219,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const location = searchInput.value.trim();
         if (location) {
             fetchWeather(location);
+            fetchWeeklyForecastByLocation(location);
             suggestionsContainer.innerHTML = ''; // Clear suggestions
             searchInput.value = ''; // Clear input field after search
         } else {
@@ -243,11 +284,9 @@ document.addEventListener('DOMContentLoaded', function () {
     celsiusButton.addEventListener('click', function () {
         if (!isCelsius) {
             isCelsius = true;
-            fetchWeather(searchInput.value.trim());
-            fetchUserLocation();
-            if (currentLatitude && currentLongitude) {
-                fetchWeeklyForecastByCoordinates(currentLatitude, currentLongitude);
-            }
+            const location = searchInput.value.trim();
+            fetchWeather(location);
+            fetchWeeklyForecastByLocation(location);
         }
     });
 
@@ -255,11 +294,9 @@ document.addEventListener('DOMContentLoaded', function () {
     fahrenheitButton.addEventListener('click', function () {
         if (isCelsius) {
             isCelsius = false;
-            fetchWeather(searchInput.value.trim());
-            fetchUserLocation();
-            if (currentLatitude && currentLongitude) {
-                fetchWeeklyForecastByCoordinates(currentLatitude, currentLongitude);
-            }
+            const location = searchInput.value.trim();
+            fetchWeather(location);
+            fetchWeeklyForecastByLocation(location);
         }
     });
 
